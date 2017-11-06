@@ -1,0 +1,28 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+
+/*Clear fix code*/
+.clear-fix:before, .clear-fix:after{
+	content: "";
+	display: table;
+}
+
+.clear-fix:after{
+	clear: both;
+}
+
+.clear-fix{
+	zoom: 1; 
+}
+
+/*Tools*/
+.left{
+	float: left;
+}
+
+.right{
+	float: right;
+}
