@@ -1,0 +1,437 @@
+body{
+	background: #f3f3f3;
+}
+
+/*Open Sans Font Family*/
+@font-face{
+	font-family: OpenSans;
+	src:url('../fonts/open-sans-semibold.ttf');
+}
+
+@font-face{
+	font-family: OpenSansLight;
+	src:url('../fonts/open-sans-regular.ttf');
+}
+
+@font-face{
+	font-family: OpenSansItalic;
+	src:url('../fonts/open-sans-italic.ttf');
+}
+
+@font-face{
+	font-family: OpenSansBold;
+	src:url('../fonts/open-sans-bold.ttf');
+}
+
+@font-face{
+	font-family: OpenSansExtraBold;
+	src:url('../fonts/open-sans-extrabold.ttf');
+}
+
+.main-wrapper{
+	background: #f3f3f3;
+}
+
+.header-wrapper{
+	width: 100%;
+}
+
+.header-top-wrapper{
+	max-width: 100%;
+	background: url("../images/header-scale.png") #76c7c0;
+	background-position: bottom;
+	background-repeat: repeat-x;
+}
+
+.header-top-main{
+	max-width: 73.125em; /*1170px*/
+	margin: 0 auto;
+}
+
+.header-logo{
+	float: left;
+	padding-top: 28px;
+	padding-left: 8px;
+	padding-bottom: 31px;
+}
+
+.header-navbar{
+	float: right;
+}
+
+.header-navbar-menu{
+	float: left;
+	padding-top: 25px;
+}
+
+.navbar-search{
+	float: left;
+	padding-top: 27px;
+	position: relative;
+}
+
+
+
+
+.searchbox-wrapper{
+	display: none;
+	position: relative;
+	padding-top: 5px;
+}
+
+.up-arrow{
+	/*display: none;*/
+	position: absolute;
+	width: 0px;
+	height: 0px;
+	top:-1px;
+	right: 11px;
+}
+
+.burger-icon{
+	display: none;
+}
+
+.header-bottom-wrapper{
+	background: #ececec;
+}
+
+.header-bottom-main{
+	max-width: 73.125em;
+	margin: 0 auto;
+	line-height: 80px;
+	color: #7f8c8c;
+}
+
+.header-bottom-main span.header-bottom-menu{
+	float: right;
+	font-size: 12px;
+	padding-right: 4px;
+	padding-top: 2px;
+	font-family: OpenSansLight;
+}
+
+/*Header End*/
+.text-slider-wrapper{
+	background: #f3f3f3;
+}
+
+.text-slider-main{
+	max-width: 73.125em; /*1170px*/
+	margin: 0 auto;
+	line-height: 140px;
+	max-height: 140px; 
+}
+
+.text-slider-main .text{
+	float: left;
+	color: #7f8c8c;
+}
+
+.text-slider-main .text span{
+	font-family: OpenSansBold;
+	font-size: 25px;
+}
+
+.text-slider-btn{
+	width: 100px;
+	float: right;
+	margin-top: 49px;
+}
+.text-slider-btn .right-btn{
+	width: 40px;
+	height: 40px;
+	float: right;
+}
+
+
+/*Image slider*/
+
+.image-slider-wrapper{
+		background: #f3f3f3;
+		padding-bottom: 82px;
+}
+
+.image-slider-content{
+	max-width: 73.125em;
+	height: 43.9375em;
+	margin: 0 auto;
+	background: #f3f3f3;	
+}
+
+.image-slider-main{
+	 /*703px*/
+	margin-bottom: 30px;
+	position: relative;
+}
+.slider-left{
+	position: absolute;
+	width: 50px;
+	height: 60px;
+	top: 320px;
+}
+
+
+.slider-right{
+	position: absolute;
+	width: 50px;
+	height: 60px;
+	top: 320px;
+	right: 0px;
+}
+
+
+
+.indicator-box{
+	cursor: pointer;
+	height: 5px;
+	width: 5%;
+	background: grey;
+	display: inline-block;
+	margin: 0px 5px;
+	margin-bottom: 80px;
+}
+
+.project-wrapper{
+	max-width: 73.125em;
+	margin: 0 auto;
+	background: #f3f3f3;
+	margin-bottom: 46px;
+}
+
+.project-desc{
+	max-width: 65.81196581196581%;
+	float: left;
+	display: block;
+}
+
+.project-details{
+	max-width: 23.07692307692308%; 
+	float: right;
+}
+
+
+
+.text-slider-wrapper2{
+	background: #f3f3f3;
+	margin-bottom: 35px;	
+}
+
+.text-slider-main2{
+	max-width: 73.125em; /*1170px*/
+	margin: 0 auto;
+	line-height: 40px;
+	max-height: 40px; 
+}
+
+.text-slider-main2 .text{
+	float: left;
+	color: #7f8c8c;
+}
+
+.text-slider-main2 .text span{
+	font-family: OpenSansBold;
+	font-size: 25px;
+}
+
+.text-slider-main2 .text-slider-btn{
+	width: 100px;
+	float: right;
+	margin-top: 0px;
+}
+
+.images-upper{
+	width: 100%;	
+}
+
+.img-to-hide{
+	width: 100%;
+	height: 100%;
+}
+
+
+.image-hide{
+	display: none;
+	background: #83ccc5;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+}
+
+
+
+.footer-body-wrapper{
+	width: 100%;
+}
+
+.footer-body-upper{
+	padding-bottom: 20px;   /**/
+	background: url('../images/footer-scale.png') #76c7c0;
+	background-repeat: repeat-x;
+}
+
+
+.footer-body-upper-wrapper{
+	max-width: 73.125em;
+/*	padding-top: 48px;
+*/	margin: 0 auto;
+}
+
+
+.footer-upper-l-col{
+	float: left;
+	width: 370px;
+	padding-top: 48px;
+}
+
+.footer-logo{
+	width: 100%;
+}
+
+
+.footer-upper-m-l-col{
+	float: left;
+	width: 204px;
+	padding-top: 48px;
+}
+
+.m-l-col-company{
+	/*width: 100%;*/
+	padding-left: 36px;
+	font-family: OpenSansBold;
+	font-size: 20px;
+	color: #497e79;
+	padding-bottom: 21px;
+}
+
+
+.m-l-col-list{
+	/*width: 100%;*/
+	padding-left: 72px;
+	line-height: 23px;	
+}
+
+
+.m-l-col-list ul{
+	font-family: OpenSansLight;
+	font-size: 13px;
+	list-style-image: url('../images/right-arrow.png');
+}
+
+.m-l-col-list ul li a{
+	text-decoration: none;
+	color: #ffffff;
+}
+
+
+.footer-upper-m-r-col{
+	float: left;
+	width: 204px;
+	padding-top: 48px;
+}
+
+.footer-upper-r-col{
+	float: right;
+	width: 370px;
+	padding-top: 48px;
+}
+
+
+.r-col-heading{
+	color: white;
+	font-family: OpenSansItalic;
+	font-size: 20px;
+	padding-bottom: 24px;
+}
+
+.r-col-heading span{
+	font-family: OpenSansBold;
+}
+
+
+.r-col-content-details-wrapper{
+	width: 100%;
+	padding-bottom: 20px;
+}
+
+.r-col-content-image{
+	float: left;
+	height: 70px;
+	width: 70px;
+}
+
+.r-col-content-image img{
+	border-radius: 5px;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.r-col-content-details{
+	float: left;
+	padding-left: 17px;
+}
+
+
+.r-col-content-details-upper{
+	width: 245px;
+	font-family: OpenSansLight;
+	line-height: 17px;
+	padding-bottom: 7px;
+}
+
+.r-col-content-details-upper a{
+	color: white;
+	font-size: 13px;
+	text-decoration: none;
+}
+
+.r-col-content-details-lower{
+	font-size: 13px;
+	font-family: OpenSansLight;	
+	color: #497e79;
+}
+
+
+.footer-body-lower{
+	background: #6ab3ac;
+}
+
+.footer-body-lower-wrapper{
+	max-width: 73.125em;
+	margin: 0 auto;
+	height: 48px;
+}
+
+.footer-lower-copyright{
+	float: left;
+	font-size: 12px;
+	color: white;
+	padding-top: 20px;
+	font-family: OpenSansLight;
+}
+
+.footer-lower-icons{
+	float: right;
+	padding-top: 3px;
+}
+
+
+
+@media (max-width: 1024px){
+	.main-wrapper{
+		overflow-x: hidden;
+	}
+
+	.header-top-wrapper{
+		width: 100%;
+	}
+
+
+.slider-indicator{
+	padding-top: 0px;
+	}	
+
+}
