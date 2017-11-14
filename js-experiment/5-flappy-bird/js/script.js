@@ -97,6 +97,7 @@ window.onload = function(){
 					if(detectCollisions(bird,obstacles)){
 						gameOverScreen.style.display = 'block';
 						obstacles = [];
+						clearInterval(nInterval);
 					}
 					window.requestAnimationFrame(gameLoop);
 		};
