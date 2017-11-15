@@ -74,8 +74,8 @@ draw = function(){
 				context.closePath();
 
 				// /context.ellipse(x, y, 10, 18, 45 * Math.PI/180, 0, 2 * Math.PI);
-				context.strokeStyle = "rgb(4,58,74)";
-				context.stroke();
+				// context.strokeStyle = "rgb(4,58,74)";
+				// context.stroke();
 
 	}
 }
