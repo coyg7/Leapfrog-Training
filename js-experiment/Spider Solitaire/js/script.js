@@ -88,8 +88,8 @@ document.forms.startGame.onsubmit = function(e) {
 	document.querySelector('.game-title').style.display = 'none';
 
 	dealer.reUpload(cardDeck.getCards()); //stores cards as <li></li>
-	dealer.delivery(44,false);   //first 44 cards arre closed	
-	dealer.delivery(10,true);	//next 10 cards to be opened
+	dealer.delivery(44,false,true);   //first 44 cards arre closed	
+	dealer.delivery(10,true,true);	//next 10 cards to be opened
 
 	document.querySelector('.opaque').classList.remove('opaque'); //Opacity reduced for control box
 	limitHeight = getLimitHeight();
