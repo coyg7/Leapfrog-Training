@@ -1,0 +1,376 @@
+body {
+	overflow: hidden;
+	background: url(../images/background.png) #065B23;
+}
+
+.wrapper {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.column {
+	width: 100px;
+	min-height: 120px;
+	padding-top: 30px;
+	float: left;
+/*	border: 1px solid #000;*/
+}
+
+.start-form {
+	width: 420px;
+	height: 250px;
+	display: block;
+	box-sizing: border-box; /*padding and border included in total height and width*/
+	padding: 20px 25px;
+	background-color: #E7E7E7;
+	border: 5px solid #065B23;
+	font-family: Georgia, serif;
+	box-shadow: 0 0 12px 5px rgba(0,0,0,0.6);
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-75%);
+	position: absolute;
+}
+
+.start-form .title {
+	margin-bottom: 20px;
+	font-size: 22px;
+}
+
+.start-form .game-option{
+	display: block;
+	margin-bottom: 15px;
+	font-size: 17px;
+	cursor: pointer;
+}
+
+.start-form input[type="submit"] {
+	width: 80px;
+	height: 32px;
+	margin-top: 5px;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.start-form .suit {
+	display: inline-block;
+	background-image: url('../images/card-shapes.png');
+	background-repeat: no-repeat;
+	background-position: 100px 50%;
+	background-size: 72px 30px;
+
+}
+
+.start-form .suit.one {
+	width: 118px;
+}
+
+
+.start-form .suit.two {
+	width: 137px;
+}
+
+
+.start-form .suit.four {
+	width: 175px;
+}
+
+.control-panel {
+	position: absolute;
+	left: 50%;
+	bottom: 10px;
+	transform: translate(-50%, 0);
+	border: 1px solid #000;
+	border-bottom: 0;
+	padding: 20px;
+	background-color: #E7E7E7;
+	opacity: 0.4;
+	transition: opacity 0.2s ease 0s;
+	text-align: center;
+	border-radius: 15px;
+}
+
+.control-panel:hover,
+.control-panel:active {
+	opacity: 1;
+}
+
+.opaque {
+	opacity: 1;
+}
+
+.control-panel button, .timer {
+	display: inline-block;
+	width: 142px;
+	height: 40px;
+	font-size: 16px;
+	outline: 2px solid #065B23;
+	outline-offset: -4px;
+	animation-name: blink;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	cursor: pointer;
+}
+
+.timer label {
+	line-height: 40px;
+}
+
+
+.faq, .faq-shadow {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+}
+
+.faq {
+	z-index: 30;
+	width: 50%;
+	left: -100%;
+	box-sizing: border-box;
+	padding: 0 2%;
+	background-color: #E7E7E7;
+	font-family: Georgia, serif;
+	font-size: 16px;
+	line-height: 1.32;
+	text-align: justify;
+	box-shadow: 0 0 12px 6px rgba(0,0,0,0.8);
+	overflow: scroll;
+	transition: width 2s;
+}
+
+.faq.open {
+	left: 0;
+}
+
+.faq-shadow {
+	z-index: 35;
+	width: 50%;
+	left: -50%;
+	background-color: transparent;
+	transition-delay: 0s;
+}
+
+.faq.open + .faq-shadow {
+	left: 50%;
+	background-color: rgba(0,0,0,0.4);
+	transition: background 0.2s linear 0.4s;
+}
+
+.faq-close {
+	cursor: pointer;
+}
+
+.faq-close::after {
+	content: '+';
+	position: absolute;
+	top: 0;
+	right: 15px;
+	padding: 10px;
+	font-family: Arial, sans-serif;
+	font-size: 36px;
+	transform: rotate(45deg);	
+}
+
+.faq h1, 
+.faq h2 {
+	font-style: italic;
+	margin-bottom: 0.25em;
+}
+
+.faq h1 {
+	font-size: 32px;
+}
+
+.faq h2 {
+	font-size: 20px;
+}
+
+
+.faq p {
+	margin-top: 0;
+	text-indent: 1.5em;
+}
+
+.faq ol {
+	list-style-type: disc;
+}
+
+.game-title {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -62%);
+	width: 600px;
+	height: 500px;
+	border: 5px solid #065B23;
+	font-family: Georgia, serif;
+	color: #E7E7E7;
+	text-align: center;
+	box-shadow: 0 0 12px 5px rgba(0,0,0,0.6);
+}
+
+
+/*Cards style*/
+.card {
+	display: block;
+	width: 80px;
+	height: 119px;
+	margin: 0 auto;
+	border: 1px solid #000;
+	border-radius: 5px;
+}
+
+.card:first-child {
+    margin-top: 0 !important;
+}
+
+.column .card,
+.drag-el .card {
+    margin-top: -86px;
+}
+
+.drag-el {
+    z-index: 100;
+    position: absolute;
+}
+
+
+.column[data-height="1"] .open {
+    margin-top: -90px;
+}
+
+
+.column[data-height="2"] .open {
+    margin-top: -94px;
+}
+
+.column[data-height="3"] .open {
+    margin-top: -98px;
+}
+
+.column[data-height="4"] .open {
+    margin-top: -102px;
+}
+
+.column[data-height="5"] .open {
+    margin-top: -106px;
+}
+
+.column .closed,
+.column .closed + .open {
+    margin-top: -116px;
+}
+
+.card.closed {
+    background-image: 
+        linear-gradient(45deg, rgba(0,0,0,0) 48%, rgba(255,255,255,0.30) 50%, rgba(0,0,0,0) 52%),
+        linear-gradient(-45deg, rgba(0,0,0,0) 48%, rgba(255,255,255,0.25) 50%, rgba(0,0,0,0) 52%);
+    background-size: 13px 17px;
+    background-color: #A03730;
+}
+
+.card.open,
+.source .card:last-child {
+    cursor: pointer;
+    /* see bg style in cards.css */
+}
+
+
+.offside {
+    width: inherit;
+    position: absolute;
+    bottom: 120px;
+}
+
+.source .card,
+.dropout .card {
+    position: absolute;
+    bottom: 0;
+}
+
+.source .card {
+    right: 0;
+} 
+
+
+.dropout .card {
+    left: 0;
+    cursor: default;
+}
+
+.source .card:nth-child(n+11) {
+    right: 10px;
+}
+
+
+.source .card:nth-child(n+21) {
+    right: 20px;
+}
+
+.source .card:nth-child(n+31) {
+    right: 30px;
+}
+
+.source .card:nth-child(n+41) {
+    right: 40px;
+}
+
+
+.dropout {
+	display: table;
+	position: relative;
+}
+
+/*Elements render in order as they appear in the document flow ==> static*/
+.dropout .card:first-child {
+	position: static;
+}
+
+.dropout::after {
+	content: ' ';
+	display: block;
+	width: calc(100% + 70px);
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.dropout .card:nth-child(n+14) {
+    left: 10px;
+}
+
+.dropout .card:nth-child(n+27) {
+    left: 20px;
+}
+
+.dropout .card:nth-child(n+40) {
+    left: 30px;
+}
+
+.dropout .card:nth-child(n+53) {
+    left: 40px;
+}
+
+.dropout .card:nth-child(n+66) {
+    left: 50px;
+}
+
+.dropout .card:nth-child(n+79) {
+    left: 60px;
+}
+
+.dropout .card:nth-child(n+92) {
+    left: 70px;
+}
+
+.ghost {
+	z-index: 100;
+	position: fixed;
+	transition-property: top, left;
+	transition-duration: 0.3s;
+	transition-timing-function: linear;
+	transition-delay: 0s;
+}
+
