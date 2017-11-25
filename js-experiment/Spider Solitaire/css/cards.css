@@ -18,7 +18,7 @@ body::after {/* preload img */
 	width: 0;
 	height: 0;
 	background-repeat: no-repeat;
-}
+} 
 
 /*Clubs*/
 .card.open.c101 {

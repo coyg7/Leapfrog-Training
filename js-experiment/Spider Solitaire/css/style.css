@@ -38,7 +38,7 @@ body {
 
 .wrapper {
 	width: 1000px;
-	margin: 0 auto;
+	margin: -20px auto;
 }
 
 .column {
@@ -67,6 +67,13 @@ body {
 	display: none;
 }
 
+input[type=radio] {
+	border: 0px;
+	width: 25px;
+	height: 25px;
+
+}
+
 .start-form .title {
 	margin-top: 20px;
 	margin-bottom: 50px;
@@ -85,7 +92,7 @@ body {
 	margin-left: 40px;
 }
 
-.start-form .game-option:hover {
+.start-form .game-option:hover, .start-form .game-option:active {
 	background: #045c58;
 	color: #e7e7e7;
 }
@@ -166,11 +173,11 @@ body {
 	font-size: 16px;
 	outline: 1px solid grey;
 	outline-offset: -4px;
-/*
+	/*
 	animation-name: blink;
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
-*/
+	*/
 	cursor: pointer;
 }
 
@@ -334,24 +341,24 @@ body {
 
 
 .column[data-height="1"] .open {
-margin-top: -90px;
+	margin-top: -90px;
 }
 
 
 .column[data-height="2"] .open {
-margin-top: -94px;
+	margin-top: -94px;
 }
 
 .column[data-height="3"] .open {
-margin-top: -98px;
+	margin-top: -98px;
 }
 
 .column[data-height="4"] .open {
-margin-top: -102px;
+	margin-top: -102px;
 }
 
 .column[data-height="5"] .open {
-margin-top: -106px;
+	margin-top: -106px;
 }
 
 .column .closed,
@@ -478,17 +485,17 @@ margin-top: -106px;
 }
 
 .congratulation {
+	width: 100%;
+	height: 100%;
 	display: none;
 }
 
-//Animations
-
 canvas {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
 }
 
 
