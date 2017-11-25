@@ -1,5 +1,6 @@
 function CardDealer() {
 
+	var that = this;
 	//Shuffles the card deck
 	this.shuffle = function(allCardsArr) { 
 		var i = allCardsArr.length;
@@ -28,7 +29,7 @@ function CardDealer() {
 		cardDeckEl.innerHTML = ul.innerHTML; //contains all <ul><li></li></ul> elements
 		ul = null;
 	}
-	
+
 	this.delivery = function(n, opened, animation) {
 		var cols = document.querySelectorAll('.column');
 		var c = 0;
@@ -77,21 +78,55 @@ function CardDealer() {
 			str += ' + .' + sibling.dataset.card;    //contains s112 if the sibling is the queen of spades
 			sibling = sibling.nextElementSibling;
 		}
-		
+
 		str = '.' + target.dataset.card + str;
-		
-//		console.log(~selectors.join('').indexOf(str));
+
+		//		console.log(~selectors.join('').indexOf(str));
 		if ( ~selectors.join('').indexOf(str) ) 
 			return true;
 	};
 
 	this.showCongratulation = function() {
-		document.body.classList.add('win');
+		document.querySelector('.congratulation').style.display = 'block';
 	}
 
 	this.hideCongratulation = function() {
-		document.body.classList.remove('win');
+		document.querySelector('.congratulation').style.display = 'none';
 	}
+
+	this.hint = function(allCards, allPlaces, selectors) {
+		this.hintCount = dealer.hintCount || 0;
+		var find = search(this.hintCount) || search(0);
+		if (!find) return;
+
+		find[0].classList.add('backlight');
+
+		setTimeout(function() {
+			find[1].classList.add('backlight');
+		}, 200);
+
+		setTimeout(function() {
+			find[0].classList.remove('backlight');
+			find[1].classList.remove('backlight');
+		}, 1500);
+
+		function search(position) {
+			for (var i = position; i < allCards.length; i++) {
+				dealer.hintCount = i + 1;
+				if (!dealer.checkStartDrag(allCards[i], selectors))
+					continue;
+				var card1 = +allCards[i].dataset.card.slice(1);  //returns integer like 105
+
+				for (var j = 0; j < allPlaces.length; j++) {
+					if (allCards[i].parentNode == allPlaces[j].parentNode) continue;
+					var card2 = +allPlaces[j].dataset.card.slice(1);
+
+					if (card1 + 1 == card2) 
+						return [allCards[i], allPlaces[j]];
+				}
+			}
+		}
+	};
 
 }
 

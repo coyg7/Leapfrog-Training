@@ -1,7 +1,7 @@
 Node.prototype.animationAppendChild = function(child) {
 	//	The TransitionEvent interface represents events providing information related to transitions.
-
-	//	if (!TransitionEvent){
+//
+//		if (!TransitionEvent){
 //		console.log("No transition");
 //		return;
 //	}
@@ -27,12 +27,12 @@ Node.prototype.animationAppendChild = function(child) {
 	var ghost = document.createElement('div');
 	ghost.className = child.className;
 	ghost.classList.add('ghost');
-	ghost.style.top = startCoords.top + 'px';
+	ghost.style.top = startCoords.top - 150 + 'px';
 	ghost.style.left = startCoords.left + 'px';
 
 	document.body.insertBefore(ghost,document.body.children[0]);
 	
-	var queue = document.querySelectorAll('.ghost').length - 2;
+	var queue = document.querySelectorAll('.ghost').length -2;
 	ghost.style.transitionDelay = queue*100 + 'ms';
 
 	ghost.onmousedown = function(e) {

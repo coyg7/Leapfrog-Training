@@ -22,6 +22,7 @@ function CardDeck() {
 
 	//Init Start
 	this.init = function() {
+		noOfMoves = 0;
 		for(var i = 0; i <= 12; i++) {
 			this.pattern[i] = i + 101;
 		}

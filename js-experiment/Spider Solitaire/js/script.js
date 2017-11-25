@@ -5,6 +5,9 @@ var dragObj = {
 };
 
 
+var timeKeeper = 0;
+var noOfMoves = 0;
+var paused = false;
 
 //Show and Hide FAQ Start
 function showFaq(){
@@ -48,16 +51,13 @@ var takeAway = function(selectors, dropoutEl, animation) {
 
 	for (var i = 0; i < selectors.length; i++) {
 		var elems = document.querySelectorAll('.open' + cardDeck.selectors[i]);
-		console.log("Elems 1", elems);
-		elems = Array.prototype.slice.call(elems);
-		console.log("Elems 2", elems);
+		elems = Array.prototype.slice.call(elems);	
 		coinc = coinc.concat(elems);
-		console.log(coinc);
+
 	}
 
 	while (coinc[0]) {
 		var p = coinc.pop().parentNode;
-		console.log("p", p);	
 
 		for (var i = 12; i >= 0; i--) {
 			animation ? 
@@ -72,9 +72,16 @@ var takeAway = function(selectors, dropoutEl, animation) {
 
 };
 
-
 //On Form Submit
+
+document.getElementById('start-btn').onclick = function() {
+	document.querySelector('.home-screen').style.display = 'none';
+	document.querySelector('.start-form').style.display = 'block';
+	document.querySelector('.control-panel').style.display = 'none';
+}
+
 document.forms.startGame.onsubmit = function(e) {
+
 	cardDeck = new CardDeck();  //cards deck Total = 104 cards
 	cardDeck.getValueFromRadioButton(this.radioBtn); //this.radioBtn = radio button name
 	cardDeck.init();
@@ -88,14 +95,18 @@ document.forms.startGame.onsubmit = function(e) {
 	document.querySelector('.game-title').style.display = 'none';
 
 	dealer.reUpload(cardDeck.getCards()); //stores cards as <li></li>
-	dealer.delivery(44,false,true);   //first 44 cards arre closed	
-	dealer.delivery(10,true,true);	//next 10 cards to be opened
+	dealer.delivery(44,false);   //first 44 cards arre closed	
+	dealer.delivery(10,true);	//next 10 cards to be opened
+	
+	document.querySelector('.control-panel').style.display = 'block';
+	document.querySelector('.timer').style.display = 'block';
+	document.querySelector('.score').style.display = 'block';
 
 	document.querySelector('.opaque').classList.remove('opaque'); //Opacity reduced for control box
 	limitHeight = getLimitHeight();
 
 	timer = new TimeCounter();
-	setInterval(timer.setTime, 1000);
+	timeKeeper = setInterval(timer.setTime, 1000);
 	return false;
 }
 
@@ -129,6 +140,7 @@ cardDeckEl.onclick = function(e) {
 }
 
 
+
 //On New Game Button Click
 document.querySelector('.btn-new').onclick = function(e) {
 	if (!cardDeck) return;
@@ -144,7 +156,38 @@ document.querySelector('.btn-new').onclick = function(e) {
 	dealer.reUpload(cardDeck.getCards());
 	dealer.delivery(44,false,true);
 	dealer.delivery(10, true,true);
+
+	noOfMoves = 0;
+	var moves = document.getElementById("score");
+	moves.innerHTML = noOfMoves;
+
+	timer = new TimeCounter();
+	clearInterval(timeKeeper);
+	timeKeeper = setInterval(timer.setTime, 1000);
 };
+
+function crossingArea(el1, el2) {
+    if (!el1 || !el2) return 0;
+
+    var coords_el1 = el1.getBoundingClientRect();
+    var coords_el2 = el2.getBoundingClientRect();
+    var a, b, c, d;
+
+    coords_el1.top > coords_el2.top ? 
+        a = coords_el1.top : a = coords_el2.top;
+
+    coords_el1.bottom > coords_el2.bottom ? 
+        b = coords_el2.bottom : b = coords_el1.bottom;
+
+    coords_el1.left > coords_el2.left ? 
+        c = coords_el1.left : c = coords_el2.left;
+
+    coords_el1.right > coords_el2.right ? 
+        d = coords_el1.right : d = coords_el2.right;
+
+    if ((b - a <= 0) || (d - c <= 0)) return 0;
+    return (b - a)*(d - c);
+}
 
 var startDrag = function(e) {  //e => mouseEvent
 	var t = e.target;		
@@ -174,37 +217,13 @@ var moveDrag = function(e) {
 	e.preventDefault();
 };
 
-
-//Crossing area where two cards meet
-//function crossingArea(el1, el2) {
-//	//If no target or container
-//	if (!el1 || !el2) 
-//		return;
-//
-//	//Co-ordinates of target
-//	var coords_el1 = el1.getBoundingClientRect();
-//
-//	//Co-ordinates of source
-//	var coords_el2 = el2.getBoundingClientRect();
-//
-//	var a, b, c, d;
-//
-//	coords_el1.top > coords_el2.top ? a = coords_el1.top : a = coords_el2.top;
-//	coords_el1.bottom > coords_el2.bottom ? b = coords_el2.bottom : b = coords_el1.bottom;
-//	coords_el1.left > coords_el2.left ? c = coords_el1.left : c = coords_el2.left;
-//	coords_el1.right > coords_el2.right ?  d = coords_el1.right : d = coords_el2.right;
-//	if ((b - a <= 0) || (d - c <= 0)) return 0;
-//	return (b - a)*(d - c);
-//}
-
-
 var getDroppable = function(target, source) {  //parameters are target and old parent
 	if (!target) return;
 
 	var pointX = target.getBoundingClientRect().left + target.offsetWidth/2; //offset width = viewable width inc. padding border scrollbar
 	var pointY = target.getBoundingClientRect().top - 3;
 
-
+	
 	var container = document.elementFromPoint(pointX, pointY); //returns the top element at the specified coordinates i.e the next hidden card to be opened.		
 
 	while (container) {
@@ -219,14 +238,18 @@ var getDroppable = function(target, source) {  //parameters are target and old p
 	if ( !container.children[0] ) //If the container is empty
 		return container;
 
-	//	var s = crossingArea(target, container.lastElementChild);  //container.lastElementChild ==> the card that is visible in any particular column
-	//
-	//	if (s < CARD_SQUARE) 
-	//		return;
+		var s = crossingArea(target, container.lastElementChild);  //container.lastElementChild ==> the card that is visible in any particular column
+	
+		if (s < 1500) 
+			return;
 	var cardNum1 = +target.dataset.card.slice(1); //Returns only a number that can be compared --> Represents target
 	var cardNum2 = +container.lastElementChild.dataset.card.slice(1); // Represents last element of new parent
-	if ( cardNum1 + 1 == cardNum2 ) 
+	if ( cardNum1 + 1 == cardNum2 ) {
+		noOfMoves++;
+		var moves = document.getElementById("score");
+		moves.innerHTML = noOfMoves;
 		return container;
+	}
 };
 
 
@@ -278,36 +301,36 @@ document.addEventListener('mouseup', endDrag);
 
 //Time counter
 
-function TimeCounter() {
-	this.minutesLabel = document.getElementById("minutes");
-	this.secondsLabel = document.getElementById("seconds");
-	this.totalSeconds = 0;
-	var that = this;
-
-	this.pad = function(val)
-	{
-		var valString = val + "";
-		if(valString.length < 2)
-		{
-			return "0" + valString;
-		}
-		else
-		{
-			return valString;
-		}
-	}
-	
-	this.setTime = function()
-	{
-		++that.totalSeconds;
-		console.log(that.totalSeconds);
-		that.secondsLabel.innerHTML = that.pad(that.totalSeconds%60);
-		that.minutesLabel.innerHTML = that.pad(parseInt(that.totalSeconds/60));
-	}
-
-	
+function showMessage(text, left, top) {
+	if (document.getElementById('message1')) return;
+	var el = document.createElement('div');
+	el.innerHTML = text;
+	el.setAttribute('id', 'message1');
+	el.className = 'message';
+	el.style.left = left + 'px';
+	el.style.top = top + 'px';
+	document.body.appendChild(el);
+	setTimeout(function() {
+		document.body.removeChild(el) 
+	}, 2500);
 }
 
+
+document.querySelector('.btn-hint').onclick = function(e) {
+	var allCards = document.querySelectorAll('.column .card.open');
+	var allPlaces = document.querySelectorAll('.column .card.open:last-child');
+
+	if (allCards.length == 0) {
+		return; 
+	} 
+	else if (allPlaces.length < 10) {
+		var text = 'I cant give you any more hints!!!';
+		showMessage(text, e.pageX-80, e.pageY-80);
+		return;
+	}
+
+	dealer.hint(allCards, allPlaces, cardDeck.selectors);
+};
 
 
 
