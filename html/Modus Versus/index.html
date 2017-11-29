@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Modus Versus - Responsive</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/layout.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/media.css">
+
+	<!--Font Awesome-->
+	<link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+	<script src="js/script.js"></script>
+
+</head>
+<body>
+	<div class="main-wrapper ">
+		<div class="header-wrapper">
+			<div class="header-top-wrapper">
+				<div class="header-top-main clear-fix">
+					<div class="header-logo">
+						<a href="#"><img src="images/logo.png" alt="Logo"></a>
+					</div>
+					<div class="header-navbar clear-fix">
+						<div class="header-navbar-menu" id="header-navbar-menu">		
+							<ul class="top-nav" id="top-nav-id">
+								<li><a href="">HOME</a></li>
+								<li><a href="">ABOUT</a></li>
+								<li><a href="">SERVICES</a></li>
+								<li class="drop-item">
+										<a href="#" class="drop-item-value">
+											<img src="images/down-arrow.png" alt="down-arrow" id="portfolio-d-arrow"/>PORTFOLIO
+										</a>
+								
+										<div class="header-dropdown-content">
+											<a href="#">Portfolio 1</a>
+											<a href="#">Portfolio 2</a>
+											<a href="#">Portfolio 3</a>
+										</div>
+								</li>
+								<li><a href="">BLOG</a></li>
+								<li><a href="">FEATURES</a></li>
+								<li><a href="">CONTACTS</a></li>
+							</ul>
+						</div>
+						<div class="navbar-search">
+							<div class="search-icon-wrapper">
+								<a class="search-icon-href" href="#">
+									<img src="images/search-btn.png" alt="search-button">
+								</a>
+							</div>
+
+							<div class="searchbox-wrapper">
+								<div class="up-arrow"></div>
+								<input id="search-box" type="text" name="search" placeholder="Search the site">
+							</div>
+						</div>
+					</div>		
+				</div>
+				<button class="burger-icon"  onclick="showMenu()">
+				
+				<i class="fa fa-bars burger-menu" aria-hidden="true" style=""></i>
+				
+				</button>
+				
+			</div>
+
+			<div class="header-bottom-wrapper clear-fix">
+				<div class="header-bottom-main">
+					<span class="portfolio-text">PORTFOLIO</span>
+					<span class="header-bottom-menu">
+						<a href="#">Home</a>
+						<a href="#">Portfolio</a>
+						<a href="#">WORDPRESS</a>
+					</span>
+				</div>
+			</div>	
+		</div>
+
+		<div class="text-slider-wrapper clear-fix">
+			<div class="text-slider-main">
+				<div class="text">
+					<span>Donec faucibus ultricies congue</span>
+				</div>
+				<div class="text-slider-btn">
+				
+						<span class="left-btn"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+						<span class="right-btn"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+					
+				</div>
+			</div>
+		</div>
+
+		<div class='image-slider-wrapper clear-fix'> 
+
+			<div class="image-slider-content clear-fix">
+					
+				<div class="image-slider fade">
+					<img src="images/image1.jpg" />
+				</div> 
+
+				<div class="image-slider fade">
+					<img src="images/image1.jpg" class = 'hide' />
+				</div> 
+
+				<div class="image-slider fade">
+					<img src="images/image3.jpg" class='hide'/>
+	
+				</div> 
+			</div>
+
+			<div class="slider-indicator">
+				<span class="indicator-box indicator-box-first" onclick="currentSlide(1)"></span>
+				<span class="indicator-box" onclick="currentSlide(2)"></span>
+				<span class="indicator-box" onclick="currentSlide(3)"></span>
+			</div>
+
+			<a href="javascript:void(0)" class="left-button" onclick="moveSlides(1)">
+				<div class="slider-left">
+					<img src="images/slider-left-arrow.png" alt="LA">
+				</div>
+			</a>
+
+			<a href="javascript:void(0)" class="right-button" onclick="moveSlides(1)">
+				<div class="slider-right">
+					<img src="images/slider-right-arrow.png" alt="RA">
+				</div>
+			</a>
+		</div>
+
+		<div class="project-wrapper">
+				<div class="project-main clear-fix">
+						<div class="project-desc">
+							<h2>PROJECT DESCRIPTION</h2>
+							<p>Maecenas eget turpis turpis. Nunc vel metus augue. Aenean euismod cursus ligula eget dapibus. Praesent vel erat in tortor placerat dignissim. </p>
+							<p>Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+						</div>
+						<div class="project-details">
+							<h2>PROJECT DETAILS</h2>
+
+							<div class="row clear-fix">
+								<div class="left">
+								<i class="fa fa-calendar" aria-hidden="true"></i>
+								 <span>Release Date</span>
+								</div> 
+								<div class="right">
+								 <span>26 May 2013</span>
+								</div>
+							</div>
+
+
+							
+							<div class="row234 clear-fix">
+								<div class="left">
+								<i class="fa fa-cogs" aria-hidden="true"></i>
+								 <span>Technologies</span>
+								</div> 
+								<div class="right">
+								 	<ul>
+								 		<li>HTML/CSS</li>
+								 		<li>WORDPRESS</li>
+								 	</ul>
+								</div>
+							</div>
+
+							<div class="row234 clear-fix">
+
+								<div class="left">
+								<i class="fa fa-user" aria-hidden="true"></i>
+
+								 <span>Clients</span>
+								</div> 
+								<div class="right">
+								 	<ul>
+								 		<li>Mighty Deals.</li>
+								 	</ul>
+								</div>
+							</div>
+
+							
+							<div class="row234 last-row clear-fix">
+								<div class="left">
+								<i class="fa fa-link" aria-hidden="true"></i>
+
+								 <span>Project url</span>
+								</div> 
+								<div class="right">
+								 	<ul>
+								 		<li>VIEW PROJECT</li>
+								 	</ul>
+								</div>
+							</div>
+ 		
+							 	</div>
+							
+						</div>
+					
+				</div>
+
+
+			
+		
+		
+		<div class="text-slider-wrapper2 clear-fix">
+			<div class="text-slider-main2 clear-fix">
+				<div class="text" style="padding-right: 13px; background: #f3f3f3;">
+					<h2>RELATED PROJECTS</h2>
+				</div>
+
+				<img src="images/circle.png" alt="cirlce">
+				<div class="text-slider-btn" style="padding-left: 27px; background: #f3f3f3;">
+				
+						<span class="left-btn"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+						<span class="right-btn"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+					
+					
+				</div>
+			</div>
+		</div>
+
+
+
+	<div class="images-collection-body ">
+		<div class="images-upper clear-fix">
+			<div class="image1 up-image">
+ 
+				<img class="img-to-hide" src="images/mountain.jpg" alt="Image1" />
+				
+				<div class="image-hide">
+					<a href="#">
+						<div class="eye">
+							<img src="images/eye.png" alt="eye" />
+						</div>
+					</a>
+					<a href="#">
+						<div class="link">
+							<img src="images/link.png" alt="link" />
+						</div>
+					</a>
+					<p>Lorem ipsum</p>
+				</div>
+
+			
+			</div>
+
+
+			<div class="image2 up-image">
+
+				<img class="img-to-hide" src="images/mountain.jpg" alt="Image2" />
+				<div class="image-hide">
+					<a href="">
+						<div class="eye">
+							<img src="images/eye.png" alt="eye" />
+						</div>
+					</a>
+					<a href="">
+						<div class="link">
+							<img src="images/link.png" alt="link" />
+						</div>
+					</a>
+					<p>Lorem ipsum</p>
+				</div>
+
+				<!-- <div class="image-show">
+					<img src="images/image1.png" alt="Image1" />
+				</div> -->
+
+			</div>
+
+
+			<div class="image3 up-image">
+				<img class="img-to-hide" src="images/mountain.jpg" alt="Image3" />
+				<div class="image-hide">
+					<a href="">
+						<div class="eye">
+							<img src="images/eye.png" alt="eye" />
+						</div>
+					</a>
+					<a href="">
+						<div class="link">
+							<img src="images/link.png" alt="link" />
+						</div>
+					</a>
+					<p>Lorem ipsum</p>
+				</div>
+
+				<!-- <div class="image-show">
+					<img src="images/image1.png" alt="Image1" />
+				</div> -->
+			</div>
+
+			<div class="image4 up-image">
+				<img class="img-to-hide" src="images/mountain.JPG" alt="Image4" />
+				<div class="image-hide">
+					<a href="">
+						<div class="eye">
+							<img src="images/eye.png" alt="eye" />
+						</div>
+					</a>
+					<a href="">
+						<div class="link">
+							<img src="images/link.png" alt="link" />
+						</div>
+					</a>
+					<p>Lorem ipsum</p>
+				</div>
+
+				<!-- <div class="image-show">
+					<img src="images/image1.png" alt="Image1" />
+				</div> -->
+
+			</div>
+		</div>
+
+	</div>
+
+	<!--Footer start-->
+		<div class="footer-body-wrapper">
+		<div class="footer-body-upper">
+			<div class="footer-body-upper-wrapper clear-fix">
+				<div class="footer-upper-l-col">
+					<div class="footer-logo">
+						<a href="#"><img src="images/logo.png" alt="Logo" /></a>
+					</div>
+					<div class="footer-paragraph">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec .
+					</div>
+					<div class="footer-phone-email">
+					<ul>
+					<li>Phone:<span>182 2569 5896</span></li>
+					<li>e-mail:<span>info@modu.versus</span></li>
+					</ul>
+					</div>
+				</div> 		
+
+				<div class="footer-upper-m-l-col">
+					<div class="m-l-col-company">
+						Company
+					</div>
+					<div class="m-l-col-list">
+						<ul>
+							<li><a href="#">About</a></li>
+							<li><a href="#">FAQ</a></li>
+							<li><a href="#">Contact</a></li>
+							<li><a href="#">Terms</a></li>
+							<li><a href="#">Privacy</a></li>
+							<li><a href="#">Testimonials</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="footer-upper-m-r-col">
+					<div class="m-l-col-company">
+						Community
+					</div>
+					<div class="m-l-col-list">
+						<ul>
+							<li><a href="">Blog</a></li>
+							<li><a href="">Forum</a></li>
+							<li><a href="">Support</a></li>
+							<li><a href="">Newsletter</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="footer-upper-r-col">
+					<div class='r-col-heading'>
+						from the <span>BLOG</span>
+					</div>
+					<div class='r-col-content clear-fix'>
+						<ul>
+							<li>
+								<div class="r-col-content-details-wrapper clear-fix">
+									<div class="r-col-content-image">
+										<img src="images/footer-image2.jpg" alt="ContentImage"/>
+									</div>
+									<div class="r-col-content-details">
+										<div class="r-col-content-details-upper">
+											<a href="#">Lorem ipsum dolor sit amet, consec tetur adipisicing elit.</a>
+										</div>
+										<div class="r-col-content-details-lower">
+											26 May, 2013
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="r-col-content-details-wrapper clrfix">
+									<div class="r-col-content-image">
+										<img src="images/footer-image1.jpg" alt="ContentImage"/>
+									</div>
+									<div class="r-col-content-details">
+										<div class="r-col-content-details-upper">
+											<a href="#">Lorem ipsum dolor sit amet, consec tetur adipisicing elit.</a>
+										</div>
+										<div class="r-col-content-details-lower">
+											26 May, 2013
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-body-lower">
+			<div class="footer-body-lower-wrapper clear-fix">
+				<div class="footer-lower-copyright">
+				2013 ModusVersus
+				</div>
+				<div class="footer-lower-icons">
+					<ul>
+						<li><a href="#"><img src="images/facebook.png" alt="facebook-icon"></a></li>
+						<li><a href="#"><img src="images/gplus.png" alt="google-plus-icon"></a></li>
+						<li><a href="#"><img src="images/twitter.png" alt="twitter-icon"></a></li>
+						<li><a href="#"><img src="images/rss.png" alt="rss-icon"></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+<script type="text/javascript">
+
+</script>
+
+</body>
+</html>
