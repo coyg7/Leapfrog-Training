@@ -4,8 +4,8 @@ body {
 }
 
 .home-screen {
-	background: url('../images/homescreen1.jpg');
-	display: block;
+	background: url('../images/homescreen1.jpg') ;
+	/*	display: table;*/
 	width: 1366px;
 	height: 768px;
 }
@@ -14,26 +14,42 @@ body {
 	width: 390px;
 	height: 80px;
 	padding: 10px;
-	font-size: 32px;
+	font-size: 28px;
 	font-weight: 1000;
 	text-transform: uppercase;
-	font-family: ;
-	margin-top: 390px;
-	margin-left: 440px;
+	top: 390px;
+	left: 440px;
+	cursor: pointer;
+	color: #f6bf5b;
+	background: #a66428;
+	border-radius: 20px;
+	position: absolute;
+}
+
+.home-screen button:hover, .home-screen button#high-score-btn:hover {
+	background: #774218;
+}
+
+.home-screen button label {
+	cursor: pointer;
+}
+
+.home-screen button#high-score-btn {
+	width: 150px;
+	height: 40px;
+	padding: 10px;
+	font-size: 15px;
+	font-weight: 1100;
+	text-transform: uppercase;
+	top: 380px;
+	left: 900px;
+	position: absolute;
 	cursor: pointer;
 	color: #f6bf5b;
 	background: #a66428;
 	border-radius: 20px;
 }
 
-.home-screen button:hover {
-	background: #774218;
-}
-
-.home-screen button label {
-	cursor: pointer;
-
-}
 
 
 .wrapper {
@@ -260,7 +276,7 @@ input[type=radio] {
 	transition: background 0.2s linear 0.4s;
 }
 
-.faq-close {
+.faq-close{
 	cursor: pointer;
 }
 
@@ -497,6 +513,89 @@ canvas {
 	right: 0;
 	bottom: 0;
 }
+
+/**/
+
+/*
+.input {
+display: none;
+position: absolute;
+top: 18em;
+left: 0;
+right: 0;
+text-align: center;
+}
+.input input {
+width: 5em;
+padding-left: 0.2em;
+border: 0.08em solid #333;
+background: none;
+border-radius: 5px;
+font-size: 3em;
+}
+.input input:focus { outline: none; }
+.input input::-webkit-input-placeholder { 
+color: #666;
+text-shadow: none;
+}
+.input input:-moz-placeholder {
+color: #666;
+text-shadow: none;
+}
+
+.restart {
+position: absolute;
+top: 2.5em;
+left: 0;
+right: 0;
+text-align: center;
+}
+*/
+
+.score-board {
+	position: absolute;
+	left: 380px;
+	top: 30px;
+	width: 500px;
+	height: 500px;
+	color: #074744;
+	background: #e7e7e7;
+	border-radius: 20px;
+	border: 5px solid #074744;
+	display: none;
+	padding: 20px;
+}
+
+.score-board h2 {
+	text-align: center;
+}
+
+
+ol#high-scores {
+	font-size: 24px;
+}
+
+ol li {
+	list-style-type: none;
+	counter-increment: list;
+	position: relative;
+	padding-bottom: 30px;
+	padding-right: 20px;
+	text-align: right;
+}
+
+ol li:after {
+	content: counter(list) ".";
+	position: absolute;
+	left: -1.5em;
+	width: -80px;
+	text-align: right;
+	color: blue;
+	
+	
+}
+
+
 
 
 

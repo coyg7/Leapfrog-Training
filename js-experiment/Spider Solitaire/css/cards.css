@@ -1,6 +1,5 @@
 .card.open {
 	background-color: #FFF;
-	/*	background-image: url(../images/cards_80_pn.png);*/
 	background-repeat: no-repeat;
 	background-clip: padding-box;
 	background-position: 80px 120px; /* clear */

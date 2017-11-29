@@ -10,21 +10,16 @@ function draw() {
 	requestAnimationFrame(draw);
 
 	ctx.font = "72px OpenSans";
-	//				var gradient = ctx.createLinearGradient(0,0,c.width,0);
-	//				gradient.addColorStop("0","magenta");
-	//				gradient.addColorStop("0.5","blue");
-	//				gradient.addColorStop("1.0","red");
-	//				ctx.fillStyle = gradient;
 	ctx.fillText("You Won!!!",500,300);
 
-	ctx.globalCompositeOperation = "xor";
-	ctx.fillStyle = "rgba(0, 0, 0, .03)";
-	ctx.fillRect(0, 0, w, h);
-
+	ctx.globalCompositeOperation = "xor";  //defines how new image is drawn in to a existing image
+	ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
+	ctx.fillRect(0, 0, w, h);  //left,top,width,height
 	ctx.globalCompositeOperation = "lighter";
 
-	var l = nodes.length,
-			node;
+	var l = nodes.length;
+	var node;
+	
 	while (l--) {
 		node = nodes[l];
 		drawNode(node);
@@ -33,14 +28,14 @@ function draw() {
 		}
 	}
 
-	if (nodes.length < 10) {
+	if (nodes.length < 20) {
 		l = rand(4, 1) | 0;
 		while (l--) {
 			nodes.push(
 				makeNode(
 					(Math.random() * w) | 0,
 					(Math.random() * h) | 0,
-					40,
+					100,
 					"hsl(" + (rand(300, 0) | 0) + ", 100%, 50%)",
 					100
 				)
@@ -62,15 +57,9 @@ function drawNode(node) {
 		updatePoint(point);
 		if (point.dead) {
 			node.children.splice(l, 1);
-			if (node.count > 20) {
+			if (node.count >100) {
 				nodes.push(
-					makeNode(
-						point.x,
-						point.y,
-						node.radius * 10,
-						node.color,
-						(node.count / 10) | 0
-					)
+					makeNode(point.x, point.y, node.radius * 10, node.color, (node.count / 10) | 0)
 				);
 			}
 		}
@@ -103,12 +92,12 @@ function makeNode(x, y, radius, color, partCount) {
 	partCount = partCount || 0;
 	var count = partCount;
 
-	var children = [],
-			kof,
-			r;
+	var children = [];
+	var kof = 0;
+	var r = 0;
 
 	while (partCount--) {
-		kof = (100 * Math.random()) | 0;
+		kof = (100 * Math.random()) | 0;   //bitwise or
 		r = (radius * Math.random()) | 0;
 		children.push({
 			x: x,
@@ -116,7 +105,7 @@ function makeNode(x, y, radius, color, partCount) {
 			dx: x + r * Math.cos(ttt * kof * rad),
 			dy: y + r * Math.sin(ttt * kof * rad),
 			color: color,
-			velocity: rand(1, 0.05)
+			velocity: rand(1, 0.06)
 		});
 		ttt++;
 	}

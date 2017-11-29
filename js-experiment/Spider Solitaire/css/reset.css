@@ -10,5 +10,19 @@ ul {
 button, 
 input[type="button"], 
 input[type="submit"] {
-    border: none;
+	border: none;
+}
+
+
+.clear-fix:before, .clear-fix:after { 
+	content: "";  
+	display: table; 
+} 
+
+.clear-fix:after {  
+	clear: both;
+} 
+
+.clear-fix { 
+	zoom: 1; 
 }

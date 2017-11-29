@@ -1,4 +1,4 @@
-@media only screen and (max-width:1010px){
+@media only screen and (max-width:1024px){
 
 	.header-navbar{
 		float: left;
@@ -24,9 +24,13 @@
 		padding-bottom: 0px;
 	}
 
-
 	.project-wrapper{
 		margin-top: 0px;
+	}
+
+	.project-wrapper .project-main {
+		padding-left: 20px;
+    	padding-right: 90px;
 	}
 
 	.project-desc{
@@ -193,7 +197,7 @@
 
 @media only screen and (max-width: 810px){
 	.slider-left, .slider-right{
-		top: 140px;
+		top: 165px;
 	}
 
 	.image-slider-wrapper{
@@ -281,6 +285,46 @@
 	}
 
 }
+
+@media only screen and (max-width: 420px) {
+
+	.text-slider-main .text span {
+    font-family: OpenSansBold;
+    font-size: 16px;
+	}
+	
+	.slider-right {
+		position: absolute;;
+		top: 80px;
+		right: -20px;
+	}
+	.slider-right img {
+		width: 30px;
+		top: 100px;
+	}
+
+	.slider-left {
+		position: absolute;;
+		top: 80px;
+	}
+
+	.slider-left img {
+		width: 30px;
+	}
+
+	.image-slider-content {
+		height: 500px;
+	}
+
+	.burger-icon{
+		font-size: 20px;
+		top: 20px;
+	}
+
+
+
+}
+
 @media only screen and (max-width: 320px){
 	.upper-slider-body a.left-button, a.right-button{
 		top:28%;
@@ -293,12 +337,28 @@
 		margin-right: 0px;
 	}
 
-	.image1, .image3{
-		margin-left: 10%;
+	.header-bottom-wrapper {
+		height: 60px;
 	}
 
-	.image2, .image4{
-		margin-right: 10%;
+	.header-bottom-main span.portfolio-text {
+		font-size: 14px;
+	}
+
+	.text-slider-btn {
+		margin-top: 10px;
+	}
+
+	.text-slider-main .text{
+		margin-top: -40px;
+	}
+
+	.text-slider-main .text span{
+		font-size: 13px;
+	}
+
+	.text-slider-main2 .text h2 {
+		font-size: 13px;
 	}
 
 	.eye{
