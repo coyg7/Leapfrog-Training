@@ -19,7 +19,7 @@ document.forms.startGame.onsubmit = function(e) {
 	cardDeck = new CardDeck(); 
 	cardDeck.getValueFromRadioButton(this.radioBtn);
 	cardDeck.init();
-	cardDeck.create();
+	cardDeck.create();		
 
 	dealer = new CardDealer();
 	dealer.shuffle(cardDeck.getCards());

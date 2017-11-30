@@ -116,7 +116,7 @@ function CardDealer() {
 
 					if (card1 + 1 == card2){ 
 
-						hintSound = new Sound('../audio/hint.mp3');
+						hintSound = new Sound('audio/hint.mp3');
 						hintSound.play();
 						return [allCards[i], allPlaces[j]];
 

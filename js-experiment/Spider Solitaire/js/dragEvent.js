@@ -72,7 +72,7 @@ function DragEvents() {
 			dealer.showCongratulation();
 			clearInterval(timeKeeper);
 			UpdateScore();
-			bgSound = new Audio('../audio/bg-music.mp3');
+			bgSound = new Audio('audio/bg-music.mp3');
 			bgSound.addEventListener('ended', function() {
 				this.currentTime = 0;
 				this.play();
@@ -110,11 +110,11 @@ function DragEvents() {
 			noOfMoves++;
 			var moves = document.getElementById("score");
 			moves.innerHTML = noOfMoves;	
-			popSound = new Sound('../audio/pop.mp3');
+			popSound = new Sound('audio/pop.mp3');
 			popSound.play();
 			return this.container;
 		}
-		dragSound = new Sound('../audio/drag.mp3');
+		dragSound = new Sound('audio/drag.mp3');
 		dragSound.play();
 
 	};
